@@ -6,10 +6,12 @@ pkgs.mkShell {
 
       about=$(mktemp)
       eventTemplate=$(mktemp)
+      githubHandles=$(mktemp)
       nextEventTemplate=$(mktemp)
       clean() {
         rm -f "$about"
         rm -f "$eventTemplate"
+        rm -f "$githubHandles"
         rm -f "$nextEventTemplate"
       }
       trap clean EXIT INT TERM
@@ -74,11 +76,29 @@ pkgs.mkShell {
       </article>
       EOF
 
+      replaceGithubHandles() {
+        cat > "$githubHandles"
+        {
+          cat <<EOF
+            Alexander aforemny
+            Fabian kirchner
+            Marvin CrazyMarvin
+            Michael Viir
+            Peter PeterZilz
+      EOF
+        } | \
+          while read -r firstName username; do
+            sed -i "s,@$firstName\b,[$firstName](https://github.com/$username),g" "$githubHandles"
+          done
+        cat "$githubHandles"
+      }
+
       viewEvent() {
+        cat "${toString ./.}"/events/$1.md | \
+        replaceGithubHandles | \
         ${pkgs.pandoc}/bin/pandoc -f markdown -t html \
           --template "$eventTemplate" \
-          -V date="$(date -d $1 '+%a, %b %-d')" \
-          "${toString ./.}"/events/$1.md
+          -V date="$(date -d $1 '+%a, %b %-d')"
       }
 
       viewEvents() {
