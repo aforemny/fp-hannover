@@ -11,3 +11,5 @@ We are currently invested in the following technology, but what we offer changes
 - [Nix/ NixOS](https://nixos.org/)
 
 Our events will usually be held in German, but we are happy to switch to English!
+
+**You may join our events at: [meet.foremny.me/hannover-functional-programming-meetup](https://meet.foremny.me/hannover-functional-programming-meetup)**
