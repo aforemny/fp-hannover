@@ -138,7 +138,13 @@ pkgs.mkShell {
             </section>
             <section>
               <h2>Future Events</h2>
-              $(viewEvents $futureEvents)
+              $(viewEvents $(echo $futureEvents | tr ' ' '\n' | head -n 2 | xargs))
+              <details>
+                <summary>
+                  and $(($(echo $futureEvents | wc -w) - 2)) more in 2022
+                </summary>
+                $(viewEvents $(echo $futureEvents | tr ' ' '\n' | tail -n +3 | xargs))
+              </details>
             </section>
             <section>
               <h2>Past Events</h2>
