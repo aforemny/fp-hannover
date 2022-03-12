@@ -142,7 +142,7 @@ pkgs.mkShell {
             </section>
             <section>
               <h2>Past Events</h2>
-              $(viewEvents $pastEvents)
+              $(viewEvents $(echo $pastEvents | tr ' ' '\n' | tac | xargs))
             </section>
           </main>
         </body>
