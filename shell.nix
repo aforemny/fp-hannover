@@ -48,7 +48,7 @@ pkgs.mkShell {
             Next Session:
           </span>
           <small>
-            $date$, $time$ CET/CEST
+            $date$ @ $time$ CET/CEST
           </small>
         </h2>
       EOF
@@ -77,7 +77,7 @@ pkgs.mkShell {
       viewEvent() {
         ${pkgs.pandoc}/bin/pandoc -f markdown -t html \
           --template "$eventTemplate" \
-          -V date=$1 \
+          -V date="$(date -d $1 '+%a, %b %-d')" \
           "${toString ./.}"/events/$1.md
       }
 
