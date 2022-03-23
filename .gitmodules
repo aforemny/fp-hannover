@@ -1,0 +1,3 @@
+[submodule "talks/aforemny/2022-03-23/composable-form"]
+	path = talks/aforemny/2022-03-23/composable-form
+	url = git@github.com:hannover-fp/composable-form.git
