@@ -173,7 +173,7 @@ pkgs.mkShell {
                 <summary>
                   and $(($(echo $pastEvents | wc -w) - 1)) more in 2022
                 </summary>
-                $(viewEvents $(echo $pastEvents | tr ' ' '\n' | tac | head -n +1 | xargs))
+                $(viewEvents $(echo $pastEvents | tr ' ' '\n' | tac | tail -n +2 | xargs))
               </details>
             </section>
           </main>
