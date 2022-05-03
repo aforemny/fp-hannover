@@ -14,6 +14,11 @@
   - resouces can be embedded via foreign keys, across tables
   - early examples are worth looking at
   - *later examples were skipped for brevity*
+- [Insertions / Updates](https://postgrest.org/en/stable/api.html#insertions-updates)
+  - insert: `jq -n --arg task 'test insert' '{ task: $task }' | curl -sS -d @- -H 'Content-Type: application/json' http://localhost:3000/todos | jq .`
+  - update: `jq -n --arg id 3 --arg task 'test update' '{ id: $id, task: $task, done: false, due: null }' | curl -sS -d @- -H 'Content-Type: application/json' -X PUT http://localhost:3000/todos?id=eq.3 | jq .`
+  - delete: `curl -sS -H 'Content-Type: application/json' -X DELETE http://localhost:3000/todos?id=eq.3 | jq .`
+  - bulk inserts via csv
 
 ## Resources
 
