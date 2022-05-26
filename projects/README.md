@@ -1,7 +1,6 @@
 # Projects
 
-We are currently working on or have working in the past on the following
-projects:
+We are currently working on or have worked in the past on the following projects:
 
 - [Sneak.Page](https://sneak.page)
 
