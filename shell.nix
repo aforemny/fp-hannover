@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> { } }:
 pkgs.mkShell {
   buildInputs = [
     (pkgs.writers.writeDashBin "build-website" ''
@@ -82,6 +82,7 @@ pkgs.mkShell {
           cat <<EOF
             Alexander aforemny
             Fabian kirchner
+            Günter guenterjantzen
             Marvin CrazyMarvin
             Michael Viir
             Peter PeterZilz
